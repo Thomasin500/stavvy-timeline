@@ -1,3 +1,52 @@
+.timeline-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    align-self: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
 .timeline-container {
-    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+
+
+/*general todo//when making thead screen narrow thead text color-profile the right hangs off */
+.line {
+    border-bottom: 2px solid red;
+    width: 12rem;
+    margin-bottom: 0.75rem;
+}
+
+/* maybe move this to the left or something, the text isnt really centered*/
+.label {
+    position: absolute;
+    margin-top: 2rem;
+    width: 10rem;
+    margin-left: -1rem;
+}
+
+/* the roundness of the circle is not responsive, it becomes very oval-like*/
+.circle {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.current {
+    background-color: #03b1fc;
+}
+
+.complete {
+    background-color: #03fc39;
+}
+
+.incomplete {
+    background-color: #bbb;
 }
