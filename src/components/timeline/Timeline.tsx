@@ -9,40 +9,38 @@ export interface ITimelineProps {
     statuses: string[]
 }
 
-const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses }) => (
-    <div className="timeline-main">
-        <span className="header">{name}</span>
-        <div className="timeline-container">
-            <span className="circle complete">
-                <span className="label">hiii</span>
-            </span>
+const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses }) => {
 
-            <span className="line"></span>
+    const finalStatus = statuses.pop();
 
-            <span className="circle complete">
-                <span className="label">There is a thing</span>
-            </span>
+    return (
+        <div className="timeline-main">
+            <span className="header">{name}</span>
+            <div className="timeline-container">
 
-            <span className="line"></span>
 
-            <span className="circle current">
-                <span className="label">This is a really long entry, hopefully trhings wont be this long but you never know</span>
-            </span>
+                {statuses.map(status => {
 
-            <span className="line"></span>
+                    return (
+                        <div className="status-container">
+                            <span className="circle complete">
+                                <span className="label">{status}</span>
+                            </span>
 
-            <span className="circle incomplete">
-                <span className="label">ABC 123</span>
-            </span>
+                            <span className="line"></span>
+                        </div>
+                    )
 
-            <span className="line"></span>
+                })}
 
-            <span className="circle incomplete">
-                <span className="label">Dragon Ball Z is a thing</span>
-            </span>
+                <span className="circle complete">
+                    <span className="label">{finalStatus}</span>
+                </span>
+
+            </div>
         </div>
-    </div>
-);
+    )
+}
 
 Timeline.defaultProps = {
     name: "No Name Provided",
