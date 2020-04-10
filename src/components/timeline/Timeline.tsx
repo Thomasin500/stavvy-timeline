@@ -11,7 +11,8 @@ export interface ITimelineProps {
 
 const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses }) => {
 
-    const finalStatus = statuses.pop();
+
+    let foundCurr = false;
 
     return (
         <div className="timeline-main">
@@ -19,24 +20,38 @@ const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses }) 
             <div className="timeline-container">
 
 
-                {statuses.map(status => {
+                {statuses.map((status, index) => {
+
+                    let cirlceClassNames = "circle ";
+
+                    if (foundCurr) {
+                        cirlceClassNames += "incomplete";
+                    }
+                    if (status === currentStatus) {
+                        foundCurr = true;
+                        cirlceClassNames += "current";
+                    } else {
+                        cirlceClassNames += "complete";
+                    }
+
+                    let lineNode;
+
+                    if (index !== statuses.length - 1) {
+                        lineNode = (<span className="line"></span>);
+
+                    }
 
                     return (
                         <div className="status-container">
-                            <span className="circle complete">
+                            <span className={cirlceClassNames}>
                                 <span className="label">{status}</span>
                             </span>
 
-                            <span className="line"></span>
+                            {lineNode}
+
                         </div>
                     )
-
-                })}
-
-                <span className="circle complete">
-                    <span className="label">{finalStatus}</span>
-                </span>
-
+                })}     
             </div>
         </div>
     )

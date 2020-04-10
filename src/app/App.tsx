@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Timeline from "./components/timeline/Timeline";
+import Timeline from "../components/timeline/Timeline";
 
 enum OrderStatus {
     White = "White Belt",

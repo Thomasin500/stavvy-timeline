@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.storybook",
+    "\\public",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\timeline"
   ],
+  "SelectedNode": "\\src\\components\\timeline\\timeline.css",
   "PreviewInSolutionExplorer": false
 }

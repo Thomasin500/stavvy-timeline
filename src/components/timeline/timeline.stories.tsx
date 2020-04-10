@@ -5,9 +5,8 @@ import Timeline from "./Timeline";
 
 
 storiesOf("Timeline", module)
-    .add("with text", () => {
+    .add("with short text", () => {
 
-        //todo import real data and feed it here? maybe look into best practices
         enum OrderStatus {
             White = "White Belt",
             Blue = "Blue Belt",
@@ -16,9 +15,30 @@ storiesOf("Timeline", module)
             Black = "Black Belt"
         }
 
-        const orderStatus = "Blue"
+        const orderStatus = "Purple"
 
        return (
+            <Timeline
+                name="Order"
+                currentStatus={OrderStatus[orderStatus]}
+                statuses={Object.values(OrderStatus)}
+            //excludeStatuses={[OrderStatus.rejected]} //<-- TODO still need to finish this
+            />
+        )
+    })
+    .add("with long text", () => {
+
+        enum OrderStatus {
+            White = "White Belt with a little bit of length",
+            Blue = "Blue Belt highlights",
+            Purple = `Purple Belt is the best belt`,
+            Brown = "Brown Belt",
+            Black = `Black Belt is the best belt because I need text Purple Belt`
+        }
+
+        const orderStatus = "Blue"
+
+        return (
             <Timeline
                 name="Order"
                 currentStatus={OrderStatus[orderStatus]}
