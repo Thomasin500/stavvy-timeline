@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
 }
+/*the timeline is not centered*/
 
 .header {
     align-self: center;
@@ -19,14 +20,6 @@
     display: flex;
 }
 
-/*general todo//when making thead screen narrow thead text color-profile the right hangs off */
-/*TODO the chart doesnt collapse well when narrowing*/
-.line {
-    border-bottom: 2px solid red;
-    width: 12rem;
-    margin-bottom: 0.65rem;
-}
-
 /* maybe move this to the left or something, the text isnt really centered*/
 .label {
     position: absolute;
@@ -36,7 +29,37 @@
     text-align: center;
 }
 
+.label-current {
+    font-size: 2rem;
+}
+
+.label-incomplete {
+    font-size: 1rem;
+    color: #bbb
+}
+
+.label-complete {
+    font-size: 1rem;
+    color: darkgreen;
+}
+
+/*general todo//when making thead screen narrow thead text color-profile the right hangs off */
+/*TODO the chart doesnt collapse well when narrowing*/
+.line {
+    width: 12rem;
+    margin-bottom: 0.65rem;
+}
+
+.line-complete {
+    border-bottom: 2px solid green;
+}
+
+.line-incomplete {
+    border-bottom: 2px solid #bbb;
+}
+
 /* the roundness of the circle is not responsive, it becomes very oval-like*/
+/* the circles are not exactly circular, the ones in the middle are squished in some way*/
 .circle {
     height: 1.5rem;
     width: 1.5rem;
@@ -45,14 +68,14 @@
     display: inline-block;
 }
 
-.current {
+.circle-current {
     background-color: #03b1fc;
 }
 
-.complete {
+.circle-complete {
     background-color: #03fc39;
 }
 
-.incomplete {
+.circle-incomplete {
     background-color: #bbb;
 }

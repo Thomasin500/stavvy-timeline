@@ -11,7 +11,6 @@ export interface ITimelineProps {
 
 const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses }) => {
 
-
     let foundCurr = false;
 
     return (
@@ -22,33 +21,38 @@ const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses }) 
 
                 {statuses.map((status, index) => {
 
+                    //TODO maybe put this in a separate function
+                    let lineNode;
+                    let lineClassNames = "line ";
                     let cirlceClassNames = "circle ";
+                    let labelClassNames = "label ";
 
                     if (foundCurr) {
-                        cirlceClassNames += "incomplete";
+                        cirlceClassNames += "circle-incomplete";
+                        lineClassNames += "line-incomplete";
+                        labelClassNames += "label-incomplete";
                     }
-                    if (status === currentStatus) {
+                    else if (status === currentStatus) {
                         foundCurr = true;
-                        cirlceClassNames += "current";
+                        cirlceClassNames += "circle-current";
+                        lineClassNames += "line-incomplete";
+                        labelClassNames += "label-current";
                     } else {
-                        cirlceClassNames += "complete";
+                        cirlceClassNames += "circle-complete";
+                        lineClassNames += "line-complete";
+                        labelClassNames += "label-complete";
                     }
-
-                    let lineNode;
 
                     if (index !== statuses.length - 1) {
-                        lineNode = (<span className="line"></span>);
-
+                        lineNode = (<span className={lineClassNames}></span>);
                     }
-
+                  
                     return (
                         <div className="status-container">
                             <span className={cirlceClassNames}>
-                                <span className="label">{status}</span>
+                                <span className={labelClassNames}>{status}</span>
                             </span>
-
                             {lineNode}
-
                         </div>
                     )
                 })}     

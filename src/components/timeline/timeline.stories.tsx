@@ -2,8 +2,6 @@
 import * as React from 'react';
 import Timeline from "./Timeline";
 
-
-
 storiesOf("Timeline", module)
     .add("with short text", () => {
 
@@ -15,7 +13,7 @@ storiesOf("Timeline", module)
             Black = "Black Belt"
         }
 
-        const orderStatus = "Purple"
+        const orderStatus = "Purple";
 
        return (
             <Timeline
@@ -36,7 +34,7 @@ storiesOf("Timeline", module)
             Black = `Black Belt is the best belt because I need text Purple Belt`
         }
 
-        const orderStatus = "Blue"
+        const orderStatus = "Blue";
 
         return (
             <Timeline
