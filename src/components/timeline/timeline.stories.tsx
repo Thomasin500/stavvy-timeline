@@ -1,11 +1,11 @@
 ﻿import { storiesOf } from '@storybook/react';
 import * as React from 'react';
-import Button from "./Button";
+import Timeline from "./Timeline";
 
-storiesOf("Button", module)
+storiesOf("Timeline", module)
     .add("with text", () => (
-        <Button>Hello Button</Button>
+        <Timeline>Hello Button</Timeline>
     ))
     .add("with some emoji", () => (
-        <Button>😀 😎 👍 💯</Button>
+        <Timeline>😀 😎 👍 💯</Timeline>
     ));
