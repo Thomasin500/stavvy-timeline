@@ -6,10 +6,15 @@ import "./timeline.css"
 export interface ITimelineProps {
     name: string,
     currentStatus: string,
-    statuses: string[]
+    statuses: string[],
+    excludeStatuses: string[]
 }
 
-const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses }) => {
+const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses, excludeStatuses }) => {
+
+    if (excludeStatuses.includes(currentStatus)) {
+        return (<div>This order is currently in a {currentStatus} state.</div>)
+    }
 
     let foundCurr = false;
 
@@ -18,8 +23,9 @@ const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses }) 
             <span className="header">{name}</span>
             <div className="timeline-container">
 
-
                 {statuses.map((status, index) => {
+
+                    console.log(status)
 
                     //TODO maybe put this in a separate function
                     let lineNode;
@@ -48,7 +54,7 @@ const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses }) 
                     }
                   
                     return (
-                        <div className="status-container">
+                        <div className="status-container" key={status}>
                             <span className={cirlceClassNames}>
                                 <span className={labelClassNames}>{status}</span>
                             </span>
@@ -64,7 +70,8 @@ const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses }) 
 Timeline.defaultProps = {
     name: "No Name Provided",
     currentStatus: "",
-    statuses: []
+    statuses: [],
+    excludeStatuses: []
 };
 
 export default Timeline;

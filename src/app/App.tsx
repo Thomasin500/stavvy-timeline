@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Timeline from "../components/timeline/Timeline";
 
 enum OrderStatus {
@@ -7,7 +6,8 @@ enum OrderStatus {
     Blue = "Blue Belt",
     Purple = "Purple Belt",
     Brown = "Brown Belt",
-    Black = "Black Belt"
+    Black = "Black Belt",
+    rejected = "White Belt"
 }
 
 //todo create real data here
@@ -16,15 +16,15 @@ function App() {
     //excludeStatus: if currentStatus is one of the exclude statuses render a 
     //component that says "This order is currently in a {currentStatus} state.
 
-    const orderStatus = "Purple";
+    const orderStatus = "Black";
 
     return (
-        <div className="App">
+        <div>
             <Timeline
                 name="Order"
                 currentStatus={OrderStatus[orderStatus]}
                 statuses={Object.values(OrderStatus)}
-                //excludeStatuses={[OrderStatus.rejected]} //<-- TODO still need to finish this
+                excludeStatuses={[OrderStatus.rejected]}
             />
         </div>
     );

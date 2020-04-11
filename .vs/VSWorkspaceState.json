@@ -4,9 +4,9 @@
     "\\.storybook",
     "\\public",
     "\\src",
-    "\\src\\components",
+    "\\src\\app",
     "\\src\\components\\timeline"
   ],
-  "SelectedNode": "\\src\\components\\timeline\\timeline.css",
+  "SelectedNode": "\\.env",
   "PreviewInSolutionExplorer": false
 }
