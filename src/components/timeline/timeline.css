@@ -31,11 +31,11 @@
 }
 
 .label-current {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .label-incomplete {
-    font-size: 1rem;
+    font-size: 0.75rem;
     color: #bbb
 }
 
