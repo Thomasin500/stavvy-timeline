@@ -1,8 +1,6 @@
 import * as React from 'react';
 import "./timeline.css"
 
-//I think this is typescript stuff?
-//TODO make sure there is full default props and other type scripty stuff
 export interface ITimelineProps {
     name: string,
     currentStatus: string,
@@ -10,22 +8,22 @@ export interface ITimelineProps {
     excludeStatuses: string[]
 }
 
+//TODO maybe wrap the whole timeline in a small border with a slightly greyish background color? make it stick out a bit
+
 const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses, excludeStatuses }) => {
 
     if (excludeStatuses.includes(currentStatus)) {
-        return (<div>This order is currently in a {currentStatus} state.</div>)
+        return (<div className="excluded">This order is currently in a {currentStatus} state.</div>)
     }
 
     let foundCurr = false;
 
     return (
-        <div className="timeline-main">
-            <span className="header">{name}</span>
-            <div className="timeline-container">
+        <div data-testid="timeline-main" className="timeline-main">
+            <span data-testid="header" className="header">{name}</span>
+            <div data-testid="timeline-container" className="timeline-container">
 
                 {statuses.map((status, index) => {
-
-                    console.log(status)
 
                     //TODO maybe put this in a separate function
                     let lineNode;
@@ -50,13 +48,13 @@ const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses, ex
                     }
 
                     if (index !== statuses.length - 1) {
-                        lineNode = (<span className={lineClassNames}></span>);
+                        lineNode = (<span data-testid="line" className={lineClassNames}></span>);
                     }
                   
                     return (
-                        <div className="status-container" key={status}>
-                            <span className={cirlceClassNames}>
-                                <span className={labelClassNames}>{status}</span>
+                        <div data-testid="status-container" className="status-container" key={status}>
+                            <span data-testid="circle" className={cirlceClassNames}>
+                            <span data-testid="label" className={labelClassNames}>{status}</span>
                             </span>
                             {lineNode}
                         </div>

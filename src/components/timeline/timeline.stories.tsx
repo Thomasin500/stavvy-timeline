@@ -10,10 +10,10 @@ storiesOf("Timeline", module)
             Blue = "Blue Belt",
             Purple = "Purple Belt",
             Brown = "Brown Belt",
-            Black = "Black Belt",
-            rejected = "White"
+            Black = "Black Belt"
         }
 
+        const rejected = ["Blue Belt"];
         const orderStatus = "Purple";
 
        return (
@@ -21,7 +21,7 @@ storiesOf("Timeline", module)
                 name="Order"
                 currentStatus={OrderStatus[orderStatus]}
                 statuses={Object.values(OrderStatus)}
-                excludeStatuses={[OrderStatus.rejected]}
+                excludeStatuses={rejected}
             />
         )
     })
@@ -32,10 +32,10 @@ storiesOf("Timeline", module)
             Blue = "Blue Belt highlights",
             Purple = `Purple Belt is the best belt`,
             Brown = "Brown Belt",
-            Black = `Black Belt is the best belt because I need text Purple Belt`,
-            rejected = "White"
+            Black = `Black Belt is the best belt because I need text, lots and lots of text to make space`
         }
 
+        const rejected = ["Blue Belt"];
         const orderStatus = "Blue";
 
         return (
@@ -43,7 +43,29 @@ storiesOf("Timeline", module)
                 name="Order"
                 currentStatus={OrderStatus[orderStatus]}
                 statuses={Object.values(OrderStatus)}
-                excludeStatuses={[OrderStatus.rejected]}
+                excludeStatuses={rejected}
+            />
+        )
+    })
+    .add("with current status excluded", () => {
+
+        enum OrderStatus {
+            White = "White Belt",
+            Blue = "Blue Belt",
+            Purple = "Purple Belt",
+            Brown = "Brown Belt",
+            Black = "Black Belt"
+        }
+
+        const rejected = ["Purple Belt"];
+        const orderStatus = "Purple";
+
+        return (
+            <Timeline
+                name="Order"
+                currentStatus={OrderStatus[orderStatus]}
+                statuses={Object.values(OrderStatus)}
+                excludeStatuses={rejected}
             />
         )
     })

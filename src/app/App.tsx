@@ -6,16 +6,12 @@ enum OrderStatus {
     Blue = "Blue Belt",
     Purple = "Purple Belt",
     Brown = "Brown Belt",
-    Black = "Black Belt",
-    rejected = "White Belt"
+    Black = "Black Belt"
 }
 
-//todo create real data here
 function App() {
-    //todo from email
-    //excludeStatus: if currentStatus is one of the exclude statuses render a 
-    //component that says "This order is currently in a {currentStatus} state.
-
+    
+    const rejected = ["Blue Belt"];
     const orderStatus = "Black";
 
     return (
@@ -24,7 +20,7 @@ function App() {
                 name="Order"
                 currentStatus={OrderStatus[orderStatus]}
                 statuses={Object.values(OrderStatus)}
-                excludeStatuses={[OrderStatus.rejected]}
+                excludeStatuses={rejected}
             />
         </div>
     );

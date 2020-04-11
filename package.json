@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "@storybook/preset-create-react-app": "^2.1.1",
     "@storybook/react": "^5.3.18",
     "awesome-typescript-loader": "^5.2.1",
     "react-docgen-typescript-loader": "^3.7.2",
