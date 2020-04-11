@@ -11,6 +11,8 @@ Features:
 - Tested
 - (Mostly) Responsive
 
+![Example](/example.png)
+
 ## Instructions for Use
 
 ### Installation
