@@ -8,7 +8,7 @@ Features:
 - Differentiate between complete, current, and future timeline goals
 - 100% written in ReactJS & TypeScript
 - Viewable in StoryBook for easy UI testing
-- Tested
+- Unit Tested
 - (Mostly) Responsive
 
 ## Instructions for Use
