@@ -17,7 +17,7 @@ function App() {
     return (
         <div>
             <Timeline
-                name="Order"
+                name="Jiu Jitsu Belts"
                 currentStatus={OrderStatus[orderStatus]}
                 statuses={Object.values(OrderStatus)}
                 excludeStatuses={rejected}

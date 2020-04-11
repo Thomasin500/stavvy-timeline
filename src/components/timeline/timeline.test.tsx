@@ -14,9 +14,10 @@ it('renders a basic timeline', () => {
 
     const rejected = ["Blue Belt"];
     const orderStatus = "Purple";
+    const headerName = "Jiu Jitsu Belts";
 
     const { getByText, getAllByTestId } = render(<Timeline
-        name="Order"
+        name={headerName}
         currentStatus={OrderStatus[orderStatus]}
         statuses={Object.values(OrderStatus)}
         excludeStatuses={rejected}
@@ -35,15 +36,17 @@ it('renders a basic timeline', () => {
     expect(labels.length).toEqual(enumValues.length);
     expect(circles.length).toEqual(enumValues.length);
     expect(lines.length).toEqual(enumValues.length - 1);
+    expect(getByText(headerName)).toBeTruthy();
 });
 
 it('renders a timeline with an excluded status', () => {
 
     const rejected = ["Purple Belt"];
     const orderStatus = "Purple";
+    const headerName = "Jiu Jitsu Belts";
 
     const { getByText, queryByTestId } = render(<Timeline
-        name="Order"
+        name={headerName}
         currentStatus={OrderStatus[orderStatus]}
         statuses={Object.values(OrderStatus)}
         excludeStatuses={rejected}

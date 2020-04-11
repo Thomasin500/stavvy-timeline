@@ -8,8 +8,6 @@ export interface ITimelineProps {
     excludeStatuses: string[]
 }
 
-//TODO maybe wrap the whole timeline in a small border with a slightly greyish background color? make it stick out a bit
-
 const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses, excludeStatuses }) => {
 
     if (excludeStatuses.includes(currentStatus)) {
@@ -25,7 +23,6 @@ const Timeline: React.SFC<ITimelineProps> = ({ name, currentStatus, statuses, ex
 
                 {statuses.map((status, index) => {
 
-                    //TODO maybe put this in a separate function
                     let lineNode;
                     let lineClassNames = "line ";
                     let cirlceClassNames = "circle ";

@@ -18,7 +18,7 @@ storiesOf("Timeline", module)
 
        return (
             <Timeline
-                name="Order"
+                name="Jiu Jitsu Belts"
                 currentStatus={OrderStatus[orderStatus]}
                 statuses={Object.values(OrderStatus)}
                 excludeStatuses={rejected}
@@ -40,7 +40,7 @@ storiesOf("Timeline", module)
 
         return (
             <Timeline
-                name="Order"
+                name="Jiu Jitsu Belts"
                 currentStatus={OrderStatus[orderStatus]}
                 statuses={Object.values(OrderStatus)}
                 excludeStatuses={rejected}
